@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const hbs = require('hbs')
 
-app.use(require('./routes/workout.js'))
+app.use(require('./controllers/workout.js'))
 app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
