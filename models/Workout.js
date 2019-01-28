@@ -8,6 +8,7 @@ const Exercise = new Schema({
   reps: Number 
 });
 
+
 const Workout = new Schema({
   goal: String,
   createdAt: {
@@ -18,6 +19,6 @@ const Workout = new Schema({
 });
 
 module.exports = {
-  Tweet: mongoose.model("Workout", Workout),
-  Comment: mongoose.model("Exercise", Exercise)
-};
+  Workout: mongoose.model("Workout", Workout),
+  Exercise: mongoose.model("Exercise", Exercise)
+}

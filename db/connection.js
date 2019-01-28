@@ -1,4 +1,8 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/workouts");
 mongoose.Promise = Promise;
+const mongoUri = 'mongodb://localhost/workouts'
+
+mongoose
+  .connect(mongoUri) 
+  .catch(connectionError => console.log('Connection failed!', connectionError))
 module.exports = mongoose;
