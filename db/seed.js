@@ -14,13 +14,12 @@ mongoose.Promise = Promise
 //   })
 // })
 
-// Workout.deleteMany({}).then(_ => {
-//   Exercise.deleteMany({}).then(_ => {
-//     console.log(seeds)
-//     console.log('Dropped the DB')
-//     Exercise.collection.insertOne(seeds)
-//     workout.exercises.push(seeds.name)
-//     console.log(workout)
-//     mongoose.connection.close()
-//   })
-// })
+Workout.deleteMany({}).then(_ => {
+  Exercise.deleteMany({}).then(_ => {
+    console.log(seeds)
+    console.log('Dropped the DB')
+    Workout.collection.insertOne(seeds)
+    console.log(workout)
+    mongoose.connection.close()
+  })
+})

@@ -5,12 +5,28 @@ const mongoose = require('../db/connection')
 
 router.get('/', (req, res) => {
   Workout.find({})
-  .then(result => res.render('index'))
+  .populate('author')
+  .then(result => {
+    res.send(result)
+    // res.send(result[0].exercises[0].name)
+  })
 })
 
-router.get('/:_id', (req, res) => {
-  Exercise.find({_id: req.params._id})
+router.get('/workout/:_id', (req, res) => {
+  Workout.find({_id: req.params._id})
   .then( result => res.send(result))
+})
+
+router.get('/new', (req, res) => {
+  res.render('workouts/new')
+})
+
+router.post("/new", (req, res) => {
+  Workout.create(req.body)
+  .then(result => {
+    res.redirect(`/${req._id}`, result)
+    res.json(result)
+  })
 })
 
 module.exports = router
