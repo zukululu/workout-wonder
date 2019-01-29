@@ -9,26 +9,33 @@ router.get('/', (req, res) => {
   // .populate('author')
   .then(result => {
     // res.send(result)
-    res.render('index', {result})
+    res.render('index', { result })
   })
 })
 
 router.get('/workouts/:_id', (req, res) => {
   Workout.find({_id: req.params._id})
   .then( result => {
-    res.render('workouts/show', result)
+    console.log(result)
+    // res.render('workouts/show', { result })
+    res.json(result)
   })
 })
 
 router.get('/new', (req, res) => {
-  res.render('workouts/new')
+  User.find({})
+  .then(users => {
+    res.render('workouts/new', { users })
+  })
 })
 
 router.post("/new", (req, res) => {
-  Workout.create(req.body)
+  Workout.create({
+    goal: req.body.goal
+    })
   .then(result => {
-    res.redirect(`/${req._id}`, result)
-    res.json(result)
+    res.redirect(`/workouts/${workout._id}`)
+    // res.json(result)
   })
 })
 

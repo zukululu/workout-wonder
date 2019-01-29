@@ -1,9 +1,14 @@
-<form action="/" method="post" accept-charset="utf-8">
+<form action="/new" method="post" accept-charset="utf-8">
   <p>
     <label>Workout:</label>
     <br>
-    <input type="text" value="" name="name" id="name" placeholder="Exercise name"/>
-    <input type="text" value="" name="muscle" id="muscle" placeholder="Muscle group"/>
+    <input type="text" id="goal" name="goal" id="name"/>
+        <p>Author:</p>
+    <select name="author">
+        {{#each users }}
+        <option>{{_id}}</option>
+        {{/each}}
+    </select>
   </p>
   <input type="submit" value="Create" />
 </form>
