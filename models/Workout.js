@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
 const Exercise = new Schema({
@@ -8,16 +8,15 @@ const Exercise = new Schema({
   reps: Number 
 });
 
-
 const Workout = new Schema({
   goal: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   createdAt: {
     type: Date,
     default: Date.now()
-  },
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: User
   },
   exercises: [Exercise]
 });
@@ -25,4 +24,4 @@ const Workout = new Schema({
 module.exports = {
   Workout: mongoose.model("Workout", Workout),
   Exercise: mongoose.model("Exercise", Exercise)
-}
+};

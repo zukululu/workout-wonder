@@ -5,10 +5,10 @@ const User = new Schema({
     // name: String,
   email: String,
   password: String,
-  questions: [
+  workouts: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Question"
+      ref: "Workout"
     }
   ]
 });

@@ -1,20 +1,23 @@
 const express = require('express')
 const router = express.Router()
 const { Workout, Exercise } = require('../models/Workout')
+const User = require('../models/User')
 const mongoose = require('../db/connection')
 
 router.get('/', (req, res) => {
   Workout.find({})
-  .populate('author')
+  // .populate('author')
   .then(result => {
-    res.send(result)
-    // res.send(result[0].exercises[0].name)
+    // res.send(result)
+    res.render('index', {result})
   })
 })
 
-router.get('/workout/:_id', (req, res) => {
+router.get('/workouts/:_id', (req, res) => {
   Workout.find({_id: req.params._id})
-  .then( result => res.send(result))
+  .then( result => {
+    res.render('workouts/show', result)
+  })
 })
 
 router.get('/new', (req, res) => {
