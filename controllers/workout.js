@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { Workout, Exercise } = require('../models/Workout')
+const bodyParser = require('body-parser')
 const User = require('../models/User')
 const mongoose = require('../db/connection')
 
@@ -31,10 +32,11 @@ router.get('/new', (req, res) => {
 
 router.post("/new", (req, res) => {
   Workout.create({
-    goal: req.body.goal
+    goal: req.body.workout.goal,
+    author: req.user._id
     })
   .then(result => {
-    res.redirect(`/workouts/${workout._id}`)
+    res.redirect(`/workouts/${result._id}`)
     // res.json(result)
   })
 })
