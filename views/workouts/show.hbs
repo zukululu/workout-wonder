@@ -1,7 +1,10 @@
 <p>Goal: {{ goal }}</p>
 
 {{#if exercises}}
-<p>Exercises</p>
+<h2>Exercises</h2>
+        {{#each exercises }}
+        <p>{{ name }}</p>
+        {{/each}}
 {{/if}}
 
 <form  method='POST' action='/workouts/{{ id }}?_method=DELETE'>

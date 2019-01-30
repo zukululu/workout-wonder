@@ -46,10 +46,10 @@ router.put('/workouts/:id', (req, res) => {
 
 router.delete('/workouts/:id'), (req, res) => {
   Workout.findOneAndRemove({ _id: req.params.id})
-  .then( result => {
-    console.log('hello')
-    res.redirect('/')
-    })
+  // .then( result => {
+  //   console.log('hello')
+  //   res.redirect('/')
+  //   })
 }
 
 router.post("/new", (req, res) => {
@@ -65,35 +65,3 @@ router.post("/new", (req, res) => {
 })
 
 module.exports = router
-
-// module.exports = {
-//   show: (req, res) => {
-//     Exercise.find({})
-//     .then(exercises => {
-//       console.log(exercises)
-//       res.render('index', exercises)
-//     })
-//     // res.send(`wow`)
-//   },
-//   create: (req, res) => {
-//     Exercise.create({
-//       name: 'Squat',
-//       muscle: 'legs'
-//     })
-//     .then( exercise => {
-//       Exercise.collection.insertOne(exercise)
-//       res.redirect(`/${req._id}`)
-//     })
-//     .catch(err => console.log(err))
-//   },
-//   new: (req, res) => {
-//     res.render('workouts/new')
-//   },
-//   display: (req, res) => {
-//     Exercise.find({ _id: req.params.id})
-//     .then(exercise => {
-//       console.log(exercise)
-//       res.json(exercise)
-//     })
-//   }
-// }
