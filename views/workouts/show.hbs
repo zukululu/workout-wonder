@@ -8,12 +8,11 @@
 {{/if}}
 
 <form  method='POST' action='/workouts/{{ id }}?_method=DELETE'>
-<button type='submit'>Delete Workout</button>
+<button type='submit'>Delete Workout jk i don't work</button>
 </form>
-
-<a href='#'>Add exercise</a>
-
+<br>
 <form action='/workouts/{{ id }}?_method=PUT' method='POST'>
-<input type='text' name='newGoal'/>
-<button type='submit'>Edit Workout</button>
+<input type='text' name='name' placeholder='exercise'/>
+<input type='text' name='muscle'placeholder='muscles'/>
+<button type='submit'>New Exercise</button>
 </form>

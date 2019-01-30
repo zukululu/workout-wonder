@@ -32,17 +32,33 @@ router.get('/new', (req, res) => {
 })
 
 router.put('/workouts/:id', (req, res) => {
-  console.log(req.body)
-  Workout.findOneAndUpdate({ _id: req.params.id}, {goal: req.body.newGoal}, {new: true})
-  // console.log(req.body.newGoal)
-  .then(result => { 
-    console.log(result)
-    Workout.findOne({ _id: result.id})
-    .then( newGoalname =>{
-    res.render('workouts/show', newGoalname) 
+  Workout.findOne({ _id: req.params.id})
+  .then( result => {
+    Exercise.create({
+      name: req.body.name,
+      muscle: req.body.muscle
+    })
+    .then( newExercise => {
+      result.exercises.push(newExercise)
+      result.save( done => {
+        res.redirect(`${req.params.id}`)
+      })
     })
   })
 })
+
+// router.put('/workouts/:id', (req, res) => {                  this will change goal name
+//   console.log(req.body)
+//   Workout.findOneAndUpdate({ _id: req.params.id}, {goal: req.body.newGoal}, {new: true})
+//   // console.log(req.body.newGoal)
+//   .then(result => { 
+//     console.log(result)
+//     Workout.findOne({ _id: result.id})
+//     .then( newGoalname =>{
+//     res.render('workouts/show', newGoalname) 
+//     })
+//   })
+// })
 
 router.delete('/workouts/:id'), (req, res) => {
   Workout.findOneAndRemove({ _id: req.params.id})
@@ -63,5 +79,13 @@ router.post("/new", (req, res) => {
     // res.json(result)
   })
 })
+
+router.get('/exercises/new', (req, res) => {
+  res.render(`exercises/new`)
+})
+
+// router.post('/exercises/new', (req, res) => {
+
+// })
 
 module.exports = router
