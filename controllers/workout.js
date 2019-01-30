@@ -37,16 +37,13 @@ router.put('/workouts/:id', (req, res) => {
   .then(result => res.render('workouts/show', { result }))
 })
 
-router.delete('/workouts/:_id'), (req, res) => {
+router.delete('/workouts/:id'), (req, res) => {
   Workout.findOneAndRemove({ _id: req.params._id})
-  .then( res.redirect('/'))
+  .then( result => {
+    console.log('hello')
+    res.redirect('/')
+    })
 }
-// router.get('/workouts/show/:id', (req, res)) => {
-//   Workout.find({ _id : ${req:id}
-//   }).then(result => {
-//     res.send('hello')
-//   }
-// }
 
 router.post("/new", (req, res) => {
   Workout.create({
