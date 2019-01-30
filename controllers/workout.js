@@ -14,12 +14,12 @@ router.get('/', (req, res) => {
   })
 })
 
-router.get('/workouts/:_id', (req, res) => {
+router.get('/workouts/:id', (req, res) => {
   Workout.find({_id: req.params._id})
   .then( result => {
     console.log(result)
-    // res.render('workouts/show', { result })
-    res.json(result)
+    res.redirect(`workouts/${result._id}`, result )
+    // res.json(result)
   })
 })
 
@@ -30,12 +30,12 @@ router.get('/new', (req, res) => {
   })
 })
 
-router.get('/workouts/show/:id', (req, res)) => {
-  Workout.find({ _id : ${req:id}
-  }).then(result => {
-    res.send('hello')
-  }
-}
+// router.get('/workouts/show/:id', (req, res)) => {
+//   Workout.find({ _id : ${req:id}
+//   }).then(result => {
+//     res.send('hello')
+//   }
+// }
 
 router.post("/new", (req, res) => {
   Workout.create({
@@ -43,7 +43,8 @@ router.post("/new", (req, res) => {
     author: req.body.author
     })
   .then(result => {
-    res.redirect(`/workouts/show/${result._id}`)
+    // res.render('workouts/show', result)
+    res.redirect(`workouts/${result._id}`)
     // res.json(result)
   })
 })
