@@ -19,7 +19,7 @@ router.get('/workouts/:_id', (req, res) => {
   .then( result => {
     console.log(result)
     res.render('workouts/show', result )
-    console.log(result.goal)
+    // console.log(result.goal)
     // res.json(result)
   })
 })
@@ -31,10 +31,10 @@ router.get('/new', (req, res) => {
   })
 })
 
-router.put('/workouts/:_id', (req, res) => {
+router.put('/workouts/:id', (req, res) => {
   Workout.findOneAndUpdate({ _id: req.params._id}, { goal: req.body})
   console.log(req.body)
-  .then(result => res.json(result))
+  .then(result => res.render('workouts/show', { result }))
 })
 
 router.delete('/workouts/:_id'), (req, res) => {
