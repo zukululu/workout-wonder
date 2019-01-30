@@ -32,9 +32,16 @@ router.get('/new', (req, res) => {
 })
 
 router.put('/workouts/:id', (req, res) => {
-  Workout.findOneAndUpdate({ _id: req.params.id}, { goal: req.body})
   console.log(req.body)
-  .then(result => res.render('workouts/show', { result }))
+  Workout.findOneAndUpdate({ _id: req.params.id}, {goal: req.body.newGoal}, {new: true})
+  // console.log(req.body.newGoal)
+  .then(result => { 
+    console.log(result)
+    Workout.findOne({ _id: result.id})
+    .then( newGoalname =>{
+    res.render('workouts/show', newGoalname) 
+    })
+  })
 })
 
 router.delete('/workouts/:id'), (req, res) => {

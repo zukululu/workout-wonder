@@ -10,7 +10,7 @@
 
 <a href='#'>Add exercise</a>
 
-<form action='/workouts/{{ id }}' method='put'>
+<form action='/workouts/{{ id }}?_method=PUT' method='POST'>
 <input type='text' name='newGoal'/>
 <button type='submit'>Edit Workout</button>
 </form>

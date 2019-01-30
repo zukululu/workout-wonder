@@ -37,12 +37,17 @@ User.create({
       name: "Squat",
       muscle: "Legs"
     }).then((newExercise => {
+      console.log(newExercise)
       // Workout.update({_id: newWorkout._id}, {$push: {exercises: newExercise}})
       newWorkout.exercises.push(newExercise)
-      console.log(newExercise)
+      console.log(newWorkout)
       newUser.workouts.push(newWorkout._id)
+      newWorkout.save().then(saved => {
+      newUser.save( done => {
       console.log('done??!??')
       process.exit()
+      })
+      })
     })).catch(err => {
       console.error(err)
     })
