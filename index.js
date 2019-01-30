@@ -6,8 +6,8 @@ const cors = require('cors')
 const methodOverride = require('method-override')
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"))
 app.use(bodyParser.json())
-app.use(methodOverride('_method'))
 app.set('view engine', 'hbs');
 app.use(require('./controllers/workout.js'))
 app.use(cors())

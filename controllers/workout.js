@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
   })
 })
 
-router.get('/workouts/:_id', (req, res) => {
-  Workout.findOne({_id: req.params._id})
+router.get('/workouts/:id', (req, res) => {
+  Workout.findOne({_id: req.params.id})
   .then( result => {
     console.log(result)
     res.render('workouts/show', result )
@@ -32,13 +32,13 @@ router.get('/new', (req, res) => {
 })
 
 router.put('/workouts/:id', (req, res) => {
-  Workout.findOneAndUpdate({ _id: req.params._id}, { goal: req.body})
+  Workout.findOneAndUpdate({ _id: req.params.id}, { goal: req.body})
   console.log(req.body)
   .then(result => res.render('workouts/show', { result }))
 })
 
 router.delete('/workouts/:id'), (req, res) => {
-  Workout.findOneAndRemove({ _id: req.params._id})
+  Workout.findOneAndRemove({ _id: req.params.id})
   .then( result => {
     console.log('hello')
     res.redirect('/')

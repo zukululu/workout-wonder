@@ -33,11 +33,11 @@ User.create({
     author: newUser._id,
   }).then(newWorkout => {
     Exercise.create({
-      workout: newWorkout,
+      workout: newWorkout._id,
       name: "Squat",
       muscle: "Legs"
     }).then((newExercise => {
-      Workout.update({_id: newWorkout._id}, {$push: {exercises: newExercise}})
+      // Workout.update({_id: newWorkout._id}, {$push: {exercises: newExercise}})
       newWorkout.exercises.push(newExercise)
       console.log(newExercise)
       newUser.workouts.push(newWorkout._id)

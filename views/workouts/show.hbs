@@ -3,8 +3,9 @@
 {{#if exercises}}
 <p>Exercises</p>
 {{/if}}
-<form action='/workouts/{{ id }}' method='delete'>
-<button action='/workouts/{{ id }}' method='delete' type='submit'>Delete Workout</button>
+
+<form  method='POST' action='/workouts/{{ id }}?_method=DELETE'>
+<button type='submit'>Delete Workout</button>
 </form>
 
 <a href='#'>Add exercise</a>
