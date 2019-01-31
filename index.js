@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"))
 app.use(bodyParser.json())
 app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'))
 app.use(flash())
 app.use(require('./controllers/workout.js'))
 app.use(require('./controllers/user.js'))

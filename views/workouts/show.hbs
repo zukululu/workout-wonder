@@ -7,8 +7,8 @@
         {{/each}}
 {{/if}}
 
-<form action='/workouts/{{ id }}?_method=DELETE' method='POST'>
-<button type='submit'>Delete Workout jk i don't work</button>
+<form action='{{ this.id }}?_method=DELETE' method='POST'>
+<input type='submit' value="Delete Workout jk i don't work">
 </form>
 <br>
 <form action='/workouts/{{ id }}?_method=PUT' method='POST'>

@@ -1,0 +1,196 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.nav-buttons {
+  width: 800px;
+  background-color: red;
+  color: white;
+}
+
+.signup-form {
+  margin-top: 5%;
+  width: 30%;
+  height: 30%;
+  background-color: #b3e6ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.signup-form h2 {
+  font-family: Montserrat;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 28px;  
+}
+.signup-form button {
+  width: 80px;
+}
+.signup-form input {
+  font-family: Montserrat;
+  letter-spacing: 1px;
+  font-size: 12px;  
+  margin: 3px auto;
+  width: 150px;
+}
+.signup-form p {
+  font-family: Montserrat;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 17px;  
+  margin: 3px auto;
+}
+
+.signup-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#hero {
+  width: 100%;
+  height: 150px;
+  background-image: url('https://via.placeholder.com/1300x150');
+  background-size: cover;
+  margin: 0px;
+}
+
+.footer {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-container h1 {
+  margin-top: 2%;
+  text-align: center;
+  font-family: Montserrat;
+  text-transform: uppercase;
+}
+.button-container {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+}
+.nav-buttons {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: Poppins;
+  letter-spacing: 1px;
+}
+.workout-container{
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.workout {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid red;
+  font-family: Poppins;
+  font-size: 25px;
+  text-transform: uppercase;
+  /* background-color: black; */
+}
+.newWorkout {
+  width: 200px;
+  height: 40px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+.newWorkout p {
+  font-family: Poppins;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+
+}
+a:hover {
+  font-weight: bolder;
+  }

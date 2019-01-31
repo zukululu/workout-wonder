@@ -1,8 +1,27 @@
-<h1>Workouts</h1>
-<ul>
-  {{#each result}}
-    <li><a href='/workouts/{{_id}}'>{{ goal }}</a></li>
-  {{/each}}
-</ul>
+<div class='index-container'>
+  <div class='button-container'>
+    <a class='nav-buttons' href="/logout" id='logout'>Logout</a>
+    <a class='nav-buttons' href="/login" id='login'>Login</a>
+    <a class='nav-buttons' href="/signup" id='signup'>Signup</a>
+  </div>
 
-<a href="/new">New</a>
+{{#if result}}
+  <h1>Let's get our pump on!</h1>
+    <div class='workout-container'>
+  {{#each result}}
+    <a href='/workouts/{{_id}}'>
+      <div class='workout'>
+        {{ goal }}
+    </div>
+    </a>
+  {{/each}}
+      </div>
+  {{/if}}
+<a class='newWorkoutButton' href="/new">
+  <div class='newWorkout'>
+  <p>New</p>
+  </div>
+</a>
+
+
+</div>

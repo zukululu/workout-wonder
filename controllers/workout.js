@@ -1,7 +1,5 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const router = express.Router()
-const mongoose = require('../db/connection')
 const { Workout, Exercise } = require('../models/Workout')
 const User = require('../models/User')
 
@@ -66,12 +64,7 @@ router.put('/workouts/:id', (req, res) => {             //add exercises
 //   })
 // })
 
-router.delete('/workouts/:id'), (req, res) => {
-  Workout.findOneAndRemove({ _id: req.params.id})
-  .then( result => {
-    res.redirect('/')
-    })
-}
+
 
 router.post("/new", (req, res) => {
   Workout.create({
@@ -102,6 +95,15 @@ router.get('/exercises/new', (req, res) => {
   res.render(`exercises/new`)
 })
 
+router.delete('/workouts/:id'), (req, res) => {
+  Workout.findByIdAndRemove({ _id: req.params.id })
+  .then( (result) => {
+  console.log(result)
+    // result.workouts.id(req.params.id).remove()
+    // result.save()
+    res.redirect('/')
+    })
+}
 // router.post('/exercises/new', (req, res) => {
 
 // })
