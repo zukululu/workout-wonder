@@ -6,13 +6,16 @@ const { Workout, Exercise } = require('../models/Workout')
 const User = require('../models/User')
 
 router.get('/', (req, res) => {
-  Workout.find({})
-  // .populate('author')
+  if( req.user ) {  Workout.find({author: req.user._id})
   .then(result => {
     // res.send(result)
-    console.log(req.user)
+    console.log(result)
     res.render('index', { result })
   })
+  } else {
+    console.log(req.user)
+    res.render('index')
+  }
 })
 
 router.get('/workouts/:id', (req, res) => {
