@@ -1,9 +1,9 @@
-<h1>{{ goal }}</h1>
-
+<div class='oneWorkout-container'>
+<h2>{{ goal }}</h2>
 {{#if exercises}}
-<h2>Exercises</h2>
+<h3>Exercises</h3>
         {{#each exercises }}
-        <h3>{{ name }} </h3>
+        <h1>{{ name }} </h1>
         <p>Sets: {{sets}} Reps: {{reps}}</p>
         {{!-- <form action='workouts/{{ id }}?_method=PUT' method='POST'> --}}
         {{!-- </form> --}}
@@ -18,7 +18,9 @@
 <input type='text' name='name' placeholder='Exercise'/>
 <input type='text' name='sets'placeholder='Sets'/>
 <input type='text' name='reps'placeholder='Reps'/>
+<br>
 <button type='submit'>Submit</button>
 </form>
 
 <a href='../'>Go back</a>
+</div>
