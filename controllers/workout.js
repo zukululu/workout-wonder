@@ -63,8 +63,6 @@ router.put('/workouts/:id', (req, res) => {             //add exercises
 router.delete('/workouts/:id'), (req, res) => {
   Workout.findOneAndRemove({ _id: req.params.id})
   .then( result => {
-    console.log(result)
-  //   console.log('hello')
     res.redirect('/')
     })
 }
@@ -75,9 +73,18 @@ router.post("/new", (req, res) => {
     author: req.body.author
     })
   .then(result => {
-    // res.render('workouts/show', result)
+    User.findOne({ _id: result.author})
+    .then(user => {
+      console.log(user)
+      // user.workouts.push(result)
+      user.save(
+        result.save()
+      )
+    })
+    .then( created => {
     res.redirect(`workouts/${result._id}`)
     // res.json(result)
+    })
   })
 })
 
