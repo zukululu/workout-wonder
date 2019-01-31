@@ -1,4 +1,5 @@
 const mongoose = require("../db/connection");
+const bcrypt = require('bcrypt-nodejs')
 const Schema = mongoose.Schema;
 
 const User = new Schema({
@@ -13,8 +14,8 @@ const User = new Schema({
   ]
 });
 
-User.methods.validPassword = function(password) {
-  return bcrypt.compareSync(password, this.password);
+User.methods.hash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
 };
 
 module.exports = mongoose.model("User", User);
