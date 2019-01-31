@@ -31,7 +31,7 @@ router.get('/new', (req, res) => {
   })
 })
 
-router.put('/workouts/:id', (req, res) => {
+router.put('/workouts/:id', (req, res) => {             //add exercises
   Workout.findOne({ _id: req.params.id})
   .then( result => {
     Exercise.create({
@@ -62,10 +62,11 @@ router.put('/workouts/:id', (req, res) => {
 
 router.delete('/workouts/:id'), (req, res) => {
   Workout.findOneAndRemove({ _id: req.params.id})
-  // .then( result => {
+  .then( result => {
+    console.log(result)
   //   console.log('hello')
-  //   res.redirect('/')
-  //   })
+    res.redirect('/')
+    })
 }
 
 router.post("/new", (req, res) => {
