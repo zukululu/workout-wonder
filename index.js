@@ -10,6 +10,7 @@ app.use(methodOverride("_method"))
 app.use(bodyParser.json())
 app.set('view engine', 'hbs');
 app.use(require('./controllers/workout.js'))
+app.use(require('./controllers/user.js'))
 app.use(cors())
 
 app.listen(3000, () => console.log(`And we're live`))

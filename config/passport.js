@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local')
 const User = require('../models/User')
+const bcrypt = require('bcrypt-nodejs')
 
 const passportConfig = function(passport) {
   passport.use('local-login', new LocalStrategy({
