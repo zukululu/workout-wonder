@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
   // .populate('author')
   .then(result => {
     // res.send(result)
+    console.log(req.user)
     res.render('index', { result })
   })
 })
@@ -18,6 +19,7 @@ router.get('/workouts/:id', (req, res) => {
   Workout.findOne({_id: req.params.id})
   .then( result => {
     console.log(result)
+    console.log(req.user)
     res.render('workouts/show', result )
     // console.log(result.goal)
     // res.json(result)
@@ -27,6 +29,7 @@ router.get('/workouts/:id', (req, res) => {
 router.get('/new', (req, res) => {
   User.find({})
   .then(users => {
+    console.log(req.user)
     res.render('workouts/new', { users })
   })
 })
@@ -70,14 +73,17 @@ router.delete('/workouts/:id'), (req, res) => {
 router.post("/new", (req, res) => {
   Workout.create({
     goal: req.body.goal,
-    author: req.body.author
+    author: req.user._id
     })
   .then(result => {
-    User.findOne({ _id: result.author})
+    console.log(result)
+    User.findOne({ _id: result._id})
     .then(user => {
       console.log(user)
-      // user.workouts.push(result)
-      user.save(
+      console.log(req.user)
+      console.log(user)
+      req.user.workouts.push(result)
+      req.user.save(
         result.save()
       )
     })
@@ -89,6 +95,7 @@ router.post("/new", (req, res) => {
 })
 
 router.get('/exercises/new', (req, res) => {
+    console.log(req.user)
   res.render(`exercises/new`)
 })
 

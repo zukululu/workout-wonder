@@ -1,5 +1,5 @@
 <h1>Workouts</h1>
-{{#if user}}
+{{#if req.user}}
 <ul>
   {{#each result}}
     <li><a href='/workouts/{{_id}}'>{{ goal }}</a></li>

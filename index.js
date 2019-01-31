@@ -10,9 +10,14 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 
 require('./config/passport')(passport)
+app.use(session({secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS', saveUninitialized: true, resave: false}))
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(session({secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS', saveUninitialized: true, resave: false}))
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user
+  next()
+})
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"))
