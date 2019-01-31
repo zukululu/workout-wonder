@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const Exercise = new Schema({
   name: String,
   muscle: String,
-  sets: Number,
-  reps: Number 
+  sets: String,
+  reps: String 
 });
 
 const Workout = new Schema({

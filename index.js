@@ -29,4 +29,8 @@ app.use(require('./controllers/workout.js'))
 app.use(require('./controllers/user.js'))
 app.use(cors())
 
-app.listen(3000, () => console.log(`And we're live`))
+  app.set('port', process.env.PORT || 3000)
+
+  app.listen(app.get('port'), () => {
+    console.log(`yeet`)
+  })

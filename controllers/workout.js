@@ -40,7 +40,9 @@ router.put('/workouts/:id', (req, res) => {             //add exercises
   .then( result => {
     Exercise.create({
       name: req.body.name,
-      muscle: req.body.muscle
+      muscle: req.body.muscle,
+      reps: req.body.reps,
+      sets: req.body.sets
     })
     .then( newExercise => {
       result.exercises.push(newExercise)
