@@ -31,24 +31,6 @@ router.get('/new', (req, res) => {
   })
 })
 
-router.put('/workouts/:id', (req, res) => {
-  Workout.findOne({ _id: req.params.id})
-  .then( result => {
-    Exercise.create({
-      name: req.body.name,
-      muscle: req.body.muscle,
-      reps: req.body.reps,
-      sets: req.body.sets
-    })
-    .then( newExercise => {
-      result.exercises.push(newExercise)
-      result.save( done => {
-        res.redirect(`${req.params.id}`)
-      })
-    })
-  })
-})
-
 router.post("/new", (req, res) => {
   Workout.create({
     goal: req.body.goal,
@@ -68,8 +50,22 @@ router.post("/new", (req, res) => {
   })
 })
 
-router.get('/exercises/new', (req, res) => {
-  res.render(`exercises/new`)
+router.put('/workouts/:id', (req, res) => {
+  Workout.findOne({ _id: req.params.id})
+  .then( result => {
+    Exercise.create({
+      name: req.body.name,
+      muscle: req.body.muscle,
+      reps: req.body.reps,
+      sets: req.body.sets
+    })
+    .then( newExercise => {
+      result.exercises.push(newExercise)
+      result.save( done => {
+        res.redirect(`${req.params.id}`)
+      })
+    })
+  })
 })
 
 router.delete('/workouts/:id'), (req, res) => {
@@ -78,5 +74,10 @@ router.delete('/workouts/:id'), (req, res) => {
     res.redirect('/')
     })
 }
+
+router.get('/exercises/new', (req, res) => {
+  res.render(`exercises/new`)
+})
+
 
 module.exports = router
