@@ -56,8 +56,4 @@ router.get('/logout', function(req, res, next) {
   }
 });
 
-// Restricted (cool people only!)
-router.get('/secret', (req, res) => {
-})
-
 module.exports = router

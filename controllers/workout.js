@@ -52,7 +52,6 @@ router.get('/new', (req, res) => {
   })
 })
 
-
 router.post("/new", (req, res) => {
   Workout.create({
     goal: req.body.goal,
