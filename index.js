@@ -27,7 +27,6 @@ app.use(express.static(__dirname + '/public'))
 app.use(flash())
 app.use(require('./controllers/workout.js'))
 app.use(require('./controllers/user.js'))
-app.use(cors())
 
   app.set('port', process.env.PORT || 3000)
 

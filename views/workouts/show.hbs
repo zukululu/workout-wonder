@@ -1,4 +1,5 @@
 <div class='oneWorkout-container'>
+{{!-- <a href='../' class='back-button'>Go back</a> --}}
 <h2>{{ goal }}</h2>
 {{#if exercises}}
 <h3>Exercises</h3>
@@ -10,17 +11,18 @@
         {{/each}}
 {{/if}}
 
-<form action='{{ this.id }}?_method=DELETE' method='POST'>
-<input type='submit' value="Delete Workout jk i don't work">
-</form>
 <br>
-<form action='/workouts/{{ id }}?_method=PUT' method='POST'>
+<form action='/workouts/{{ id }}?_method=PUT' method='POST' class='new-exercise'>
 <input type='text' name='name' placeholder='Exercise'/>
 <input type='text' name='sets'placeholder='Sets'/>
 <input type='text' name='reps'placeholder='Reps'/>
 <br>
-<button type='submit'>Submit</button>
+<br>
+<button type='submit' class='workout-button' >Submit</button>
 </form>
 
-<a href='../'>Go back</a>
+<form action='{{ this.id }}?_method=DELETE' method='POST'>
+<input type='submit' value="Delete Workout" class='workout-button'>
+</form>
+
 </div>

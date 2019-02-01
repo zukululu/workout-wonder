@@ -1,8 +1,16 @@
 <div class='index-container'>
   <div class='button-container'>
+  {{#if result}}
     <a class='nav-buttons' href="/logout" id='logout'>Logout</a>
+  <a class='newWorkoutButton' href="/new">
+    <div class='newWorkout'>
+      <p>New</p>
+    </div>
+  </a>
+  {{else}}
     <a class='nav-buttons' href="/login" id='login'>Login</a>
     <a class='nav-buttons' href="/signup" id='sign'>Signup</a>
+  {{/if}}
   </div>
 
 {{#if result}}
@@ -17,11 +25,4 @@
   {{/each}}
       </div>
   {{/if}}
-<a class='newWorkoutButton' href="/new">
-  <div class='newWorkout'>
-  <p>New</p>
-  </div>
-</a>
-
-
 </div>
