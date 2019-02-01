@@ -67,12 +67,12 @@ router.put('/workouts/:id', (req, res) => {
   })
 })
 
-router.delete('/workouts/:id'), (req, res) => {
-  Workout.findByIdAndRemove({ _id: req.params.id })
+router.delete('/workouts/:id', (req, res) => {
+  Workout.findOneAndRemove({ _id: req.params.id })
   .then( (result) => {
     res.redirect('/')
     })
-}
+})
 
 router.get('/exercises/new', (req, res) => {
   res.render(`exercises/new`)
