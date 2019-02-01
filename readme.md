@@ -39,3 +39,5 @@ are.
 * JavaScript
 
 ## Installation
+* First, fork the repo.
+  * <img src='https://gyazo.com/11a4a7006141c933475540b8f104e310'></img>
