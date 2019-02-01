@@ -6,7 +6,6 @@ const User = require('../models/User')
 router.get('/', (req, res) => {
   if( req.user ) {  User.findOne({ _id: req.user._id})
   .then(result => {
-    console.log(result)
     Workout.find({ author: req.user._id})
     .then(workout => {
       res.render('index', { result, workout })
