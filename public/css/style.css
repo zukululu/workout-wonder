@@ -69,12 +69,6 @@ h1 {
   font-size: 40px;
 }
 
-.nav-buttons {
-  width: 800px;
-  background-color: red;
-  color: white;
-}
-
 .signup-form {
   margin-top: 5%;
   width: 30%;
@@ -117,9 +111,10 @@ h1 {
 
 #hero {
   width: 100%;
-  height: 150px;
-  background-image: url('https://via.placeholder.com/1300x150');
+  height: 200px;
+  background-image: url(../img/workout-wonder.png);
   background-size: cover;
+  background-position: 10% 20%;
   margin: 0px;
 }
 
@@ -154,7 +149,8 @@ h1 {
 .nav-buttons {
   width: 100px;
   height: 30px;
-  background-color: red;
+  background-color: #ff3333;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,7 +171,7 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 2px solid red;
+  border: 2px solid #ff3333;
   font-family: Poppins;
   font-size: 25px;
   text-transform: uppercase;
@@ -210,7 +206,7 @@ h1 {
 .newWorkout {
   width: 200px;
   height: 40px;
-  background-color: red;
+  background-color: #ff3333;
   display: flex;
   justify-content: center;
   align-items: center;
