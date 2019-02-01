@@ -20,6 +20,13 @@ router.get('/workouts/:id', (req, res) => {
   })
 })
 
+router.get('/new', (req, res) => {
+  User.find({})
+  .then(users => {
+    res.render('workouts/new', { users })
+  })
+})
+
 router.put('/workouts/:id', (req, res) => {
   Workout.findOne({ _id: req.params.id})
   .then( result => {
@@ -35,20 +42,6 @@ router.put('/workouts/:id', (req, res) => {
         res.redirect(`${req.params.id}`)
       })
     })
-  })
-})
-
-router.delete('/workouts/:id'), (req, res) => {
-  Workout.findByIdAndRemove({ _id: req.params.id })
-  .then( (result) => {
-    res.redirect('/')
-    })
-}
-
-router.get('/new', (req, res) => {
-  User.find({})
-  .then(users => {
-    res.render('workouts/new', { users })
   })
 })
 
@@ -74,5 +67,12 @@ router.post("/new", (req, res) => {
 router.get('/exercises/new', (req, res) => {
   res.render(`exercises/new`)
 })
+
+router.delete('/workouts/:id'), (req, res) => {
+  Workout.findByIdAndRemove({ _id: req.params.id })
+  .then( (result) => {
+    res.redirect('/')
+    })
+}
 
 module.exports = router
